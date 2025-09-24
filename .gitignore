@@ -17,3 +17,4 @@ output/
 .pytest_cache
 .coverage
 .coverage.*
+.env

@@ -1,0 +1,57 @@
+name: Daily Menu Message
+
+on:
+  schedule:
+    # Run every weekday at 8:00 AM UTC (9:00 AM CET, 10:00 AM CEST)
+    - cron: "0 8 * * 1-5"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-menu-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install uv
+          uv sync
+
+      - name: Generate menu data
+        run: |
+          uv run python menu_parser.py 2025_q4.pdf --output 2025_q4_menu_fixed.json --ics 2025_q4_menu_fixed.ics --html
+
+      - name: Generate daily message
+        run: |
+          uv run python daily_menu_message.py --telegram --output-file daily_menu.txt
+
+      - name: Upload message file
+        uses: actions/upload-artifact@v3
+        with:
+          name: daily-menu-message
+          path: daily_menu.txt
+
+      - name: Post to Telegram
+        if: success()
+        run: |
+          # Read the message content
+          MESSAGE=$(cat daily_menu.txt)
+
+          # Post to Telegram using Bot API
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"chat_id\": \"${{ secrets.TELEGRAM_CHAT_ID }}\",
+              \"text\": \"$MESSAGE\",
+              \"parse_mode\": \"HTML\"
+            }"
+
+          echo "Message posted to Telegram successfully!"
