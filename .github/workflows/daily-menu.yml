@@ -34,7 +34,7 @@ jobs:
           uv run python daily_menu_message.py --telegram --output-file daily_menu.txt
 
       - name: Upload message file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: daily-menu-message
           path: daily_menu.txt
