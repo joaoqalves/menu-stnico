@@ -604,7 +604,7 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
                  if (isDateWithinQuarterlyRange(date)) {{
                      menuContentElement.innerHTML = '<div class="no-menu">Dia de lliure disposició</div>';
                  }} else {{
-                     menuContentElement.innerHTML = '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu aaa@bbb.com</div>';
+                     menuContentElement.innerHTML = '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu <a href="mailto:joaoqalves@hey.com">joaoqalves@hey.com</a></div>';
                  }}
              }}
              
