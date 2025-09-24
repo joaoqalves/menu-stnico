@@ -359,10 +359,10 @@ class TestGenerateIcsCalendar:
             ics_text = ics_content.decode('utf-8')
             assert 'Menú Sant Nicolau - Dilluns' in ics_text
             assert 'Menú Sant Nicolau - Dimarts' in ics_text
-            assert 'Entrant: Mongeta tendra amb patates' in ics_text
-            # Check for wrapped content in ICS format
-            assert 'Principal: Gall dindi a l' in ics_text
-            assert 'a planxa amb amanida' in ics_text
+            assert 'Primer: Mongeta tendra amb patates' in ics_text
+            # Check for wrapped content in ICS format (ICS wraps long lines)
+            assert 'Segon: Gall dindi a la pla' in ics_text
+            assert 'nxa amb amanida' in ics_text
             assert 'Postre: Fruita' in ics_text
             assert 'Centre Escolar Sant Nicolau' in ics_text
             

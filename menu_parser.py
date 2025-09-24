@@ -153,9 +153,9 @@ def generate_ics_calendar(menu_data, output_path: str):
                         # Event description with structured meal information
                         description_parts = []
                         if day_menu.get('entrant'):
-                            description_parts.append(f"Entrant: {day_menu['entrant']}")
+                            description_parts.append(f"Primer: {day_menu['entrant']}")
                         if day_menu.get('main'):
-                            description_parts.append(f"Principal: {day_menu['main']}")
+                            description_parts.append(f"Segon: {day_menu['main']}")
                         if day_menu.get('dessert'):
                             description_parts.append(f"Postre: {day_menu['dessert']}")
                         
@@ -645,10 +645,10 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
                  let html = '';
                  
                  if (dayMenu.entrant) {{
-                     html += `<div class="menu-item"><strong>Entrant:</strong> ${{dayMenu.entrant}}</div>`;
+                     html += `<div class="menu-item"><strong>Primer:</strong> ${{dayMenu.entrant}}</div>`;
                  }}
                  if (dayMenu.main) {{
-                     html += `<div class="menu-item"><strong>Principal:</strong> ${{dayMenu.main}}</div>`;
+                     html += `<div class="menu-item"><strong>Segon:</strong> ${{dayMenu.main}}</div>`;
                  }}
                  if (dayMenu.dessert) {{
                      html += `<div class="menu-item"><strong>Postre:</strong> ${{dayMenu.dessert}}</div>`;
@@ -932,10 +932,10 @@ def generate_menu_html(week_menu, day_name, target_date=None, full_menu_data=Non
     html = ''
     
     if day_menu.get('entrant'):
-        html += f'<div class="menu-item"><strong>Entrant:</strong> {day_menu["entrant"]}</div>'
+        html += f'<div class="menu-item"><strong>Primer:</strong> {day_menu["entrant"]}</div>'
     
     if day_menu.get('main'):
-        html += f'<div class="menu-item"><strong>Principal:</strong> {day_menu["main"]}</div>'
+        html += f'<div class="menu-item"><strong>Segon:</strong> {day_menu["main"]}</div>'
     
     if day_menu.get('dessert'):
         html += f'<div class="menu-item"><strong>Postre:</strong> {day_menu["dessert"]}</div>'

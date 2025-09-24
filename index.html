@@ -311,7 +311,7 @@
              </div>
              <div id="current-date" data-current-date="2025-09-24">
                  <div id="menu-content">
-                     <div class="menu-item"><strong>Entrant:</strong> Escudella amb galets</div><div class="menu-item"><strong>Principal:</strong> Lluç amb patates</div><div class="menu-item"><strong>Postre:</strong> Fruita</div>
+                     <div class="menu-item"><strong>Primer:</strong> Escudella amb galets</div><div class="menu-item"><strong>Segon:</strong> Lluç amb patates</div><div class="menu-item"><strong>Postre:</strong> Fruita</div>
                  </div>
                  <div class="nav-buttons">
                      <button class="nav-btn" onclick="changeDate(-1)">← Anterior</button>
@@ -420,10 +420,10 @@
                  let html = '';
                  
                  if (dayMenu.entrant) {
-                     html += `<div class="menu-item"><strong>Entrant:</strong> ${dayMenu.entrant}</div>`;
+                     html += `<div class="menu-item"><strong>Primer:</strong> ${dayMenu.entrant}</div>`;
                  }
                  if (dayMenu.main) {
-                     html += `<div class="menu-item"><strong>Principal:</strong> ${dayMenu.main}</div>`;
+                     html += `<div class="menu-item"><strong>Segon:</strong> ${dayMenu.main}</div>`;
                  }
                  if (dayMenu.dessert) {
                      html += `<div class="menu-item"><strong>Postre:</strong> ${dayMenu.dessert}</div>`;
