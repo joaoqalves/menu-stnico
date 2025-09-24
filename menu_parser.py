@@ -814,7 +814,7 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
             
             <div class="contact">
                 <h3>Contacte</h3>
-                <p>Si teniu problemes amb l'aplicació o necessiteu ajuda, podeu contactar-nos a: <strong>aaa@bbb.com</strong></p>
+                <p>Si teniu problemes amb l'aplicació o necessiteu ajuda, podeu contactar-nos a: <strong><a href="mailto:joaoqalves@hey.com">joaoqalves@hey.com</a></strong></p>
             </div>
             
             <h3>Enllaços útils</h3>
@@ -870,7 +870,7 @@ def generate_menu_html(week_menu, day_name, target_date=None, full_menu_data=Non
         if target_date and full_menu_data and is_date_within_quarterly_range(target_date, full_menu_data):
             return '<div class="no-menu">Dia de lliure disposició</div>'
         else:
-            return '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu aaa@bbb.com</div>'
+            return '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu <strong><a href="mailto:joaoqalves@hey.com">joaoqalves@hey.com</a></strong></div>'
     
     day_menu = week_menu['days'][day_name]
     html = ''
