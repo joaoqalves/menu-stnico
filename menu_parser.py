@@ -525,7 +525,7 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
             <div class="telegram-section">
                 <a href="https://t.me/+2fEPkjrlIOw0NjM0" class="telegram-btn" target="_blank">
                     📱 Vols rebre el menú a Telegram?<br>
-                    <small>Cada dia, a les 9 del matí</small>
+                    <small>Cada dia, a les 8 del matí</small>
                 </a>
             </div>
         </div>
