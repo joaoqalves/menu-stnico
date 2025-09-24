@@ -9,7 +9,7 @@ Usage:
     python daily_menu_message.py [--date YYYY-MM-DD] [--output-file output.txt]
 
 Environment Variables:
-    MENU_JSON_PATH: Path to the menu JSON file (default: 2025_q4_menu_fixed.json)
+    MENU_JSON_PATH: Path to the menu JSON file (default: 2025_q4_menu.json)
     MENU_BASE_URL: Base URL for the menu website (default: https://joaoqalves.github.io/menu-stnico)
 """
 
@@ -149,7 +149,7 @@ def main():
         target_date = date.today()
     
     # Get configuration from environment variables or arguments
-    json_path = args.json_path or os.getenv('MENU_JSON_PATH', '2025_q4_menu_fixed.json')
+    json_path = args.json_path or os.getenv('MENU_JSON_PATH', '2025_q4_menu.json')
     base_url = args.base_url or os.getenv('MENU_BASE_URL', 'https://joaoqalves.github.io/menu-stnico')
     
     # Load menu data

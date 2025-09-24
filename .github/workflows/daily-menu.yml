@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate menu data
         run: |
-          uv run python menu_parser.py 2025_q4.pdf --output 2025_q4_menu_fixed.json --ics 2025_q4_menu_fixed.ics --html
+          uv run python menu_parser.py 2025_q4.pdf --output 2025_q4_menu.json --ics 2025_q4_menu.ics --html
 
       - name: Generate daily message
         run: |

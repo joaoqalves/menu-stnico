@@ -51,7 +51,7 @@ nano .env
 
 Environment variables:
 
-- `MENU_JSON_PATH`: Path to the menu JSON file (default: `2025_q4_menu_fixed.json`)
+- `MENU_JSON_PATH`: Path to the menu JSON file (default: `2025_q4_menu.json`)
 - `MENU_BASE_URL`: Base URL for the menu website (default: `https://joaoqalves.github.io/menu-stnico`)
 
 ## Example Output
@@ -199,7 +199,7 @@ The `send_daily_menu.sh` script provides a convenient way to generate and send t
 
 - `TELEGRAM_BOT_TOKEN`: Your bot token from BotFather
 - `TELEGRAM_CHAT_ID`: Your chat ID or group ID
-- `MENU_JSON_PATH`: Path to menu JSON file (optional, defaults to `2025_q4_menu_fixed.json`)
+- `MENU_JSON_PATH`: Path to menu JSON file (optional, defaults to `2025_q4_menu.json`)
 - `MENU_BASE_URL`: Base URL for the menu website (optional)
 
 ## Files

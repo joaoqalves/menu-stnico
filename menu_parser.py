@@ -333,9 +333,15 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
              background: #218838;
          }}
          
+         .buttons-container {{
+             display: flex;
+             justify-content: center;
+             margin-top: 30px;
+             gap: 20px;
+         }}
+         
          .share-section {{
              text-align: center;
-             margin-top: 30px;
          }}
          
          .share-btn {{
@@ -384,7 +390,6 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
         
         .download-section {{
             text-align: center;
-            margin-top: 30px;
         }}
         
         .download-btn {{
@@ -401,6 +406,35 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
         
         .download-btn:hover {{
             background: #218838;
+        }}
+        
+        .telegram-section {{
+            text-align: center;
+            margin-top: 30px;
+        }}
+        
+        .telegram-btn {{
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin: 10px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }}
+        
+        .telegram-btn:hover {{
+            background: #006699;
+        }}
+        
+        .telegram-btn small {{
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: normal;
         }}
         
         .nav {{
@@ -450,9 +484,14 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
                  max-width: 70px;
              }}
              
+             .buttons-container {{
+                 flex-direction: column;
+                 gap: 10px;
+             }}
+             
              .share-btn {{
                  display: block;
-                 margin: 10px auto;
+                 margin: 0 auto;
                  width: 100%;
                  max-width: 300px;
                  padding: 18px 30px;
@@ -461,10 +500,19 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
              
              .download-btn {{
                  display: block;
-                 margin: 10px auto;
+                 margin: 0 auto;
                  width: 100%;
                  max-width: 300px;
                  padding: 18px 30px;
+                 font-size: 1.1rem;
+             }}
+             
+             .telegram-btn {{
+                 display: block;
+                 margin: 10px auto;
+                 width: 100%;
+                 max-width: 300px;
+                 padding: 20px 30px;
                  font-size: 1.1rem;
              }}
          }}
@@ -474,6 +522,12 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
     <div class="container">
         <div class="header">
             <h1>🍽️ Menú Sant Nicolau</h1>
+            <div class="telegram-section">
+                <a href="https://t.me/+2fEPkjrlIOw0NjM0" class="telegram-btn" target="_blank">
+                    📱 Vols rebre el menú a Telegram?<br>
+                    <small>Cada dia, a les 9 del matí</small>
+                </a>
+            </div>
         </div>
         
          <div class="menu-card">
@@ -492,16 +546,18 @@ def generate_html_pages(menu_data, json_filename, ics_filename):
              </div>
          </div>
         
-        <div class="share-section">
-            <button class="share-btn" onclick="shareMenu()">
-                📤 Compartir
-            </button>
-        </div>
-        
-        <div class="download-section">
-            <a href="{ics_filename}" class="download-btn" download>
-                📅 Descarregar Calendari (.ics)
-            </a>
+        <div class="buttons-container">
+            <div class="share-section">
+                <button class="share-btn" onclick="shareMenu()">
+                    📤 Compartir
+                </button>
+            </div>
+            
+            <div class="download-section">
+                <a href="{ics_filename}" class="download-btn" download>
+                    📅 Descarregar Calendari (.ics)
+                </a>
+            </div>
         </div>
         
          <div class="nav">

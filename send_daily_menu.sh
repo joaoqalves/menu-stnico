@@ -56,7 +56,7 @@ if ! command -v uv &> /dev/null; then
 fi
 
 # Check if menu JSON file exists
-MENU_JSON_PATH="${MENU_JSON_PATH:-2025_q4_menu_fixed.json}"
+MENU_JSON_PATH="${MENU_JSON_PATH:-2025_q4_menu.json}"
 if [ ! -f "$MENU_JSON_PATH" ]; then
     print_error "Menu JSON file not found: $MENU_JSON_PATH"
     print_warning "Please run the menu parser first or set MENU_JSON_PATH environment variable"
