@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Sant Nicolau</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+         .menu-card {
+             background: white;
+             border-radius: 15px;
+             padding: 20px;
+             margin-bottom: 20px;
+             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+             transition: transform 0.3s ease;
+         }
+         
+         .menu-card:hover {
+             transform: translateY(-5px);
+         }
+         
+         .menu-header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin-bottom: 15px;
+             border-bottom: 2px solid #f0f0f0;
+             padding-bottom: 10px;
+         }
+         
+         .menu-card h2 {
+             color: #667eea;
+             margin: 0;
+             font-size: 1.3rem;
+         }
+         
+         .nav-buttons {
+             display: flex;
+             gap: 8px;
+             margin-top: 20px;
+             justify-content: center;
+         }
+         
+         .nav-btn {
+             background: #667eea;
+             color: white;
+             border: none;
+             padding: 10px 16px;
+             border-radius: 20px;
+             cursor: pointer;
+             font-size: 0.9rem;
+             transition: background 0.3s ease;
+             flex: 1;
+             max-width: 100px;
+         }
+         
+         .nav-btn:hover {
+             background: #5a6fd8;
+         }
+         
+         .nav-btn:disabled {
+             background: #ccc;
+             cursor: not-allowed;
+         }
+         
+         .nav-btn.today {
+             background: #28a745;
+             max-width: 80px;
+         }
+         
+         .nav-btn.today:hover {
+             background: #218838;
+         }
+         
+         .share-section {
+             text-align: center;
+             margin-top: 20px;
+         }
+         
+         .share-btn {
+             background: #17a2b8;
+             color: white;
+             border: none;
+             padding: 12px 20px;
+             border-radius: 25px;
+             cursor: pointer;
+             font-size: 0.95rem;
+             transition: background 0.3s ease;
+             display: inline-flex;
+             align-items: center;
+             gap: 8px;
+         }
+         
+         .share-btn:hover {
+             background: #138496;
+         }
+         
+         .menu-item {
+             margin-bottom: 8px;
+             padding: 8px 12px;
+             background: #f8f9fa;
+             border-radius: 6px;
+             border-left: 3px solid #667eea;
+             font-size: 0.95rem;
+         }
+         
+         .menu-item strong {
+             color: #495057;
+             display: inline;
+             margin-right: 8px;
+         }
+        
+        .no-menu {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin: 10px;
+        }
+        
+        .download-btn:hover {
+            background: #218838;
+        }
+        
+        .nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            margin: 0 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .nav a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+         @media (max-width: 600px) {
+             .container {
+                 padding: 15px;
+             }
+             
+             .header h1 {
+                 font-size: 2rem;
+             }
+             
+             .menu-card {
+                 padding: 15px;
+             }
+             
+             .nav-buttons {
+                 margin-top: 15px;
+                 gap: 6px;
+             }
+             
+             .nav-btn {
+                 padding: 12px 16px;
+                 font-size: 0.9rem;
+                 max-width: 90px;
+             }
+             
+             .nav-btn.today {
+                 max-width: 70px;
+             }
+             
+             .share-btn {
+                 padding: 14px 24px;
+                 font-size: 1rem;
+                 width: 100%;
+                 max-width: 250px;
+             }
+             
+             .download-btn {
+                 display: block;
+                 margin: 10px auto;
+                 width: 100%;
+                 max-width: 300px;
+                 padding: 18px 30px;
+                 font-size: 1.1rem;
+             }
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍽️ Menú Sant Nicolau</h1>
+        </div>
+        
+         <div class="menu-card">
+             <div class="menu-header">
+                 <h2>📅 Dimecres - 24/09/2025</h2>
+             </div>
+             <div id="current-date" data-current-date="2025-09-24">
+                 <div id="menu-content">
+                     <div class="menu-item"><strong>Entrant:</strong> Escudella amb galets</div><div class="menu-item"><strong>Principal:</strong> Lluç amb patates</div><div class="menu-item"><strong>Postre:</strong> Fruita</div>
+                 </div>
+                 <div class="nav-buttons">
+                     <button class="nav-btn" onclick="changeDate(-1)">← Anterior</button>
+                     <button class="nav-btn today" onclick="goToToday()">Avui</button>
+                     <button class="nav-btn" onclick="changeDate(1)">Següent →</button>
+                 </div>
+             </div>
+         </div>
+        
+        <div class="share-section">
+            <button class="share-btn" onclick="shareMenu()">
+                📤 Compartir
+            </button>
+        </div>
+        
+        <div class="download-section">
+            <a href="2025_q4_menu_fixed.ics" class="download-btn" download>
+                📅 Descarregar Calendari (.ics)
+            </a>
+        </div>
+        
+         <div class="nav">
+             <a href="sobre.html">Sobre</a>
+         </div>
+     </div>
+     
+     <script>
+         // Menu data for navigation
+         const menuData = [{"weeks": [{"start": "2025-09-09", "end": "2025-09-12"}, {"start": "2025-10-06", "end": "2025-10-10"}, {"start": "2025-11-04", "end": "2025-11-07"}, {"start": "2025-12-01", "end": "2025-12-05"}], "days": {"Dilluns": {"entrant": "Mongeta tendra amb patates", "main": "Gall dindi a la planxa amb amanida", "dessert": "Fruita", "raw": ["Mongeta tendra amb patates", "Gall dindi a la planxa amb amanida", "Fruita"]}, "Dimarts": {"entrant": "Macarrons a la bolonyesa", "main": "Filet de lluç amb amanida", "dessert": "Iogurt natural", "raw": ["Macarrons a la bolonyesa", "Filet de lluç amb amanida", "Iogurt natural"]}, "Dimecres": {"entrant": "Empedrat de cigrons", "main": "Croquetes de pollastre amb amanida", "dessert": "Fruita", "raw": ["Empedrat de cigrons", "Croquetes de pollastre amb amanida", "Fruita"]}, "Dijous": {"entrant": "Sopa de pollastre amb pistons", "main": "Truita de patates amb amanida", "dessert": "Fruita", "raw": ["Sopa de pollastre amb pistons", "Truita de patates amb amanida", "Fruita"]}, "Divendres": {"entrant": "Arròs a la cubana amb ou dur", "main": "Rap amb amanida", "dessert": "Fruita", "raw": ["Arròs a la cubana amb ou dur", "Rap amb amanida", "Fruita"]}}}, {"weeks": [{"start": "2025-09-15", "end": "2025-09-19"}, {"start": "2025-10-13", "end": "2025-10-17"}, {"start": "2025-11-10", "end": "2025-11-14"}, {"start": "2025-12-09", "end": "2025-12-12"}], "days": {"Dilluns": {"entrant": "Crema de pastanaga i carbassa", "main": "Pit de pollastre a la planxa amb amanida", "dessert": "Fruita", "raw": ["Crema de pastanaga i carbassa", "Pit de pollastre a la planxa amb amanida", "Fruita"]}, "Dimarts": {"entrant": "Llaçets a la carbonara", "main": "Truita de carbassó amb amanida", "dessert": "Fruita", "raw": ["Llaçets a la carbonara", "Truita de carbassó amb amanida", "Fruita"]}, "Dimecres": {"entrant": "Llenties amb arròs", "main": "Salmó al forn amb amanida", "dessert": "Iogurt natural", "raw": ["Llenties amb arròs", "Salmó al forn amb amanida", "Iogurt natural"]}, "Dijous": {"entrant": "Fideua de peix", "main": "Llom a la planxa amb amanida", "dessert": "Fruita", "raw": ["Fideua de peix", "Llom a la planxa amb amanida", "Fruita"]}, "Divendres": {"entrant": "Amanida de patates amb pernil dolç", "main": "Bacallà a la planxa amb amanida", "dessert": "Fruita", "raw": ["Amanida de patates amb pernil dolç", "Bacallà a la planxa amb amanida", "Fruita"]}}}, {"weeks": [{"start": "2025-09-22", "end": "2025-09-26"}, {"start": "2025-10-20", "end": "2025-10-24"}, {"start": "2025-10-17", "end": "2025-10-21"}, {"start": "2025-12-15", "end": "2025-12-19"}], "days": {"Dilluns": {"entrant": "Espaguetis a la napolitana", "main": "Cues de rap a la planxa amb amanida", "dessert": "Iogurt natural", "raw": ["Espaguetis a la napolitana", "Cues de rap a la planxa amb amanida", "Iogurt natural"]}, "Dimarts": {"entrant": "Mongetes seques amb salsa vinagreta", "main": "Botifarra amb amanida", "dessert": "Fruita", "raw": ["Mongetes seques amb salsa vinagreta", "Botifarra amb amanida", "Fruita"]}, "Dimecres": {"entrant": "Escudella amb galets", "main": "Lluç amb patates", "dessert": "Fruita", "raw": ["Escudella amb galets", "Lluç amb patates", "Fruita"]}, "Dijous": {"entrant": "Mongeta tendra amb patates", "main": "Bistec a la planxa amb amanida", "dessert": "Fruita", "raw": ["Mongeta tendra amb patates", "Bistec a la planxa amb amanida", "Fruita"]}, "Divendres": {"entrant": "Amanida d'arròs", "main": "Truita a la francesa amb amanida", "dessert": "Fruita", "raw": ["Amanida d'arròs", "Truita a la francesa amb amanida", "Fruita"]}}}, {"weeks": [{"start": "2025-09-29", "end": "2025-10-03"}, {"start": "2025-10-27", "end": "2025-10-31"}, {"start": "2025-11-24", "end": "2025-11-28"}], "days": {"Dilluns": {"entrant": "Trinxat de col i patates", "main": "Estofat de vedella amb bolets", "dessert": "Fruita", "raw": ["Trinxat de col i patates", "Estofat de vedella amb bolets", "Fruita"]}, "Dimarts": {"entrant": "Llenties a la cassola", "main": "Calamars arrebossats amb amanida", "dessert": "Fruita", "raw": ["Llenties a la cassola", "Calamars arrebossats amb amanida", "Fruita"]}, "Dimecres": {"entrant": "Pèsols amb patates", "main": "Bacallà amb verdures", "dessert": "Iogurt natural", "raw": ["Pèsols amb patates", "Bacallà amb verdures", "Iogurt natural"]}, "Dijous": {"entrant": "Arròs caldós de verdures", "main": "Hamburguesa de pollastre amb ceba i carbassa", "dessert": "Fruita", "raw": ["Arròs caldós de verdures", "Hamburguesa de pollastre amb ceba i carbassa", "Fruita"]}, "Divendres": {"entrant": "Sopa de peix amb fideus", "main": "Magra amb salsa provençal", "dessert": "Fruita", "raw": ["Sopa de peix amb fideus", "Magra amb salsa provençal", "Fruita"]}}}];
+         const originalToday = new Date('2025-09-24');
+         
+         // Get quarterly date range
+         const quarterlyRange = (() => {
+             const allDates = [];
+             for (const weekMenu of menuData) {
+                 for (const weekRange of weekMenu.weeks) {
+                     allDates.push(weekRange.start, weekRange.end);
+                 }
+             }
+             return allDates.length > 0 ? {
+                 start: allDates.reduce((min, date) => date < min ? date : min),
+                 end: allDates.reduce((max, date) => date > max ? date : max)
+             } : null;
+         })();
+         
+         function isDateWithinQuarterlyRange(date) {
+             if (!quarterlyRange) return false;
+             const dateStr = date.toISOString().split('T')[0];
+             return quarterlyRange.start <= dateStr && dateStr <= quarterlyRange.end;
+         }
+         
+         function changeDate(direction) {
+             const currentDateElement = document.getElementById('current-date');
+             const currentDate = new Date(currentDateElement.dataset.currentDate);
+             
+             // Calculate new date
+             let newDate = new Date(currentDate);
+             if (direction === -1) {
+                 newDate.setDate(newDate.getDate() - 1);
+                 // Skip weekends going backwards
+                 if (newDate.getDay() === 0) { // Sunday
+                     newDate.setDate(newDate.getDate() - 2); // Go to Friday
+                 }
+             } else {
+                 newDate.setDate(newDate.getDate() + 1);
+                 // Skip weekends going forwards
+                 if (newDate.getDay() === 6) { // Saturday
+                     newDate.setDate(newDate.getDate() + 2); // Go to Monday
+                 }
+             }
+             
+             // Update the display
+             updateMenuDisplay(newDate);
+         }
+         
+         function updateMenuDisplay(date) {
+             const dateStr = date.toISOString().split('T')[0];
+             const dayNames = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres'];
+             const dayName = dayNames[date.getDay() - 1]; // Adjust for Monday=0
+             
+             // Find menu for this date
+             let menu = null;
+             for (const weekMenu of menuData) {
+                 for (const weekRange of weekMenu.weeks) {
+                     if (weekRange.start <= dateStr && dateStr <= weekRange.end) {
+                         menu = weekMenu;
+                         break;
+                     }
+                 }
+                 if (menu) break;
+             }
+             
+             // Update the display
+             const currentDateElement = document.getElementById('current-date');
+             const menuContentElement = document.getElementById('menu-content');
+             
+             currentDateElement.dataset.currentDate = dateStr;
+             // Update the h2 in menu-header (which now contains the date)
+             document.querySelector('.menu-header h2').textContent = 
+                 `📅 ${dayName} - ${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+             
+             if (menu && menu.days && menu.days[dayName]) {
+                 const dayMenu = menu.days[dayName];
+                 let html = '';
+                 
+                 if (dayMenu.entrant) {
+                     html += `<div class="menu-item"><strong>Entrant:</strong> ${dayMenu.entrant}</div>`;
+                 }
+                 if (dayMenu.main) {
+                     html += `<div class="menu-item"><strong>Principal:</strong> ${dayMenu.main}</div>`;
+                 }
+                 if (dayMenu.dessert) {
+                     html += `<div class="menu-item"><strong>Postre:</strong> ${dayMenu.dessert}</div>`;
+                 }
+                 
+                 menuContentElement.innerHTML = html || '<div class="no-menu">No hi ha menú disponible per aquest dia</div>';
+             } else {
+                 // Check if this is a bank holiday (date within quarterly range) or missing menu
+                 if (isDateWithinQuarterlyRange(date)) {
+                     menuContentElement.innerHTML = '<div class="no-menu">Dia de lliure disposició</div>';
+                 } else {
+                     menuContentElement.innerHTML = '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu aaa@bbb.com</div>';
+                 }
+             }
+             
+             // Ensure nav-buttons stay after menu content
+             const navButtons = currentDateElement.querySelector('.nav-buttons');
+             if (navButtons) {
+                 currentDateElement.appendChild(navButtons);
+             }
+         }
+         
+         function goToToday() {
+             updateMenuDisplay(originalToday);
+         }
+         
+         function shareMenu() {
+             const currentDateElement = document.getElementById('current-date');
+             const currentDate = new Date(currentDateElement.dataset.currentDate);
+             const dayNames = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres'];
+             const dayName = dayNames[currentDate.getDay() - 1];
+             const dateStr = currentDate.getDate().toString().padStart(2, '0') + '/' + 
+                           (currentDate.getMonth() + 1).toString().padStart(2, '0') + '/' + 
+                           currentDate.getFullYear();
+             
+             // Find menu for current date
+             let menu = null;
+             for (const weekMenu of menuData) {
+                 for (const weekRange of weekMenu.weeks) {
+                     const dateStrISO = currentDate.toISOString().split('T')[0];
+                     if (weekRange.start <= dateStrISO && dateStrISO <= weekRange.end) {
+                         menu = weekMenu;
+                         break;
+                     }
+                 }
+                 if (menu) break;
+             }
+             
+             let shareText = `🍽️ Menú Sant Nicolau - ${dayName} ${dateStr}\n\n`;
+             
+             if (menu && menu.days && menu.days[dayName]) {
+                 const dayMenu = menu.days[dayName];
+                 if (dayMenu.entrant) shareText += `Entrant: ${dayMenu.entrant}\n`;
+                 if (dayMenu.main) shareText += `Principal: ${dayMenu.main}\n`;
+                 if (dayMenu.dessert) shareText += `Postre: ${dayMenu.dessert}\n`;
+             } else {
+                 shareText += 'Menú no disponible per aquest dia';
+             }
+             
+             shareText += '\n\nCentre Escolar Sant Nicolau, Sabadell';
+             
+             // Check if Web Share API is supported (mobile)
+             if (navigator.share) {
+                 navigator.share({
+                     title: 'Menú Sant Nicolau',
+                     text: shareText.replace(/\n/g, '\n'),
+                     url: window.location.href
+                 }).catch(err => {
+                     console.log('Error sharing:', err);
+                     fallbackShare(shareText);
+                 });
+             } else {
+                 fallbackShare(shareText);
+             }
+         }
+         
+         function fallbackShare(text) {
+             // Copy to clipboard
+             if (navigator.clipboard) {
+                 navigator.clipboard.writeText(text.replace(/\n/g, '\n')).then(() => {
+                     alert('Menú copiat al porta-retalls!');
+                 }).catch(() => {
+                     promptShare(text);
+                 });
+             } else {
+                 promptShare(text);
+             }
+         }
+         
+         function promptShare(text) {
+             // Fallback: show text in prompt for manual copying
+             const shareWindow = window.open('', '_blank', 'width=400,height=300');
+             shareWindow.document.write(`
+                 <html>
+                     <head><title>Compartir Menú</title></head>
+                     <body style="font-family: Arial, sans-serif; padding: 20px;">
+                         <h3>Menú Sant Nicolau</h3>
+                         <textarea readonly style="width: 100%; height: 150px; margin: 10px 0;">${text.replace(/\n/g, '\n')}</textarea>
+                         <p>Copieu el text i compartiu-lo on vulgueu!</p>
+                         <button onclick="window.close()">Tancar</button>
+                     </body>
+                 </html>
+             `);
+         }
+     </script>
+ </body>
+ </html>
