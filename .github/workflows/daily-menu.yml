@@ -2,8 +2,8 @@ name: Daily Menu Message
 
 on:
   schedule:
-    # Run every weekday at 8:00 AM UTC (9:00 AM CET, 10:00 AM CEST)
-    - cron: "0 7 * * 1-5"
+    # Run every weekday at 6:00 AM UTC (7:00 AM CET, 8:00 AM CEST)
+    - cron: "0 6 * * 1-5"
   workflow_dispatch: # Allow manual trigger
 
 jobs:
