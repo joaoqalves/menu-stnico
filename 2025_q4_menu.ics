@@ -4,10 +4,164 @@ PRODID:-//Menustnico//Menu Parser//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
+SUMMARY:🟡🔴🟡🔴🟡🔴🟡🔴🟡 Diada de Catalunya
+DTSTART;VALUE=DATE:20250911
+DTEND;VALUE=DATE:20250911
+DTSTAMP:20251008T093159Z
+CATEGORIES:catalonian
+DESCRIPTION:National Day of Catalonia
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Festa Nacional d'Espanya
+DTSTART;VALUE=DATE:20251012
+DTEND;VALUE=DATE:20251012
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Spanish National Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Tots Sants
+DTSTART;VALUE=DATE:20251101
+DTEND;VALUE=DATE:20251101
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:All Saints' Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:📚 Dia de Lliure Disposició
+DTSTART;VALUE=DATE:20251103
+DTEND;VALUE=DATE:20251103
+DTSTAMP:20251008T093159Z
+CATEGORIES:school_free_disposal
+DESCRIPTION:School day of free disposal
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Dia de la Constitució
+DTSTART;VALUE=DATE:20251206
+DTEND;VALUE=DATE:20251206
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Constitution Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Immaculada Concepció
+DTSTART;VALUE=DATE:20251208
+DTEND;VALUE=DATE:20251208
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Immaculate Conception
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Nadal
+DTSTART;VALUE=DATE:20251225
+DTEND;VALUE=DATE:20251225
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Christmas Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🟡🔴🟡🔴🟡🔴🟡🔴🟡 Sant Esteve
+DTSTART;VALUE=DATE:20251226
+DTEND;VALUE=DATE:20251226
+DTSTAMP:20251008T093159Z
+CATEGORIES:catalonian
+DESCRIPTION:Boxing Day / Saint Stephen's Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Cap d'Any
+DTSTART;VALUE=DATE:20260101
+DTEND;VALUE=DATE:20260101
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:New Year's Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Reis
+DTSTART;VALUE=DATE:20260106
+DTEND;VALUE=DATE:20260106
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Epiphany / Three Kings' Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Divendres Sant
+DTSTART;VALUE=DATE:20260403
+DTEND;VALUE=DATE:20260403
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Good Friday
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Dilluns de Pasqua
+DTSTART;VALUE=DATE:20260406
+DTEND;VALUE=DATE:20260406
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Easter Monday
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🟡🔴🟡🔴🟡🔴🟡🔴🟡 Sant Jordi
+DTSTART;VALUE=DATE:20260423
+DTEND;VALUE=DATE:20260423
+DTSTAMP:20251008T093159Z
+CATEGORIES:catalonian
+DESCRIPTION:Saint George's Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🇪🇸 Dia del Treball
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260501
+DTSTAMP:20251008T093159Z
+CATEGORIES:national
+DESCRIPTION:Labour Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🏛️ Aplec de la Salut
+DTSTART;VALUE=DATE:20260511
+DTEND;VALUE=DATE:20260511
+DTSTAMP:20251008T093159Z
+CATEGORIES:sabadell
+DESCRIPTION:Salut's day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🟡🔴🟡🔴🟡🔴🟡🔴🟡 Sant Joan
+DTSTART;VALUE=DATE:20260624
+DTEND;VALUE=DATE:20260624
+DTSTAMP:20251008T093159Z
+CATEGORIES:catalonian
+DESCRIPTION:Saint John's Day
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:🏛️ Festa Major de Sabadell
+DTSTART;VALUE=DATE:20250907
+DTEND;VALUE=DATE:20250907
+DTSTAMP:20251008T093159Z
+CATEGORIES:sabadell
+DESCRIPTION:Sabadell's main festival
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20250909T130000
 DTEND;TZID=Europe/Madrid:20250909T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Macarrons a la bolonyesa\nSegon: Filet de lluç amb am
  anida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -16,25 +170,18 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20250910T130000
 DTEND;TZID=Europe/Madrid:20250910T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Empedrat de cigrons\nSegon: Croquetes de pollastre amb
   amanida\nPostre: Fruita
-LOCATION:Centre Escolar Sant Nicolau\, Sabadell
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Menú Sant Nicolau - Dijous
-DTSTART;TZID=Europe/Madrid:20250911T130000
-DTEND;TZID=Europe/Madrid:20250911T140000
-DTSTAMP:20251002T094044Z
-DESCRIPTION:Primer: Sopa de pollastre amb pistons\nSegon: Truita de patate
- s amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20250912T130000
 DTEND;TZID=Europe/Madrid:20250912T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs a la cubana amb ou dur\nSegon: Rap amb amanida\
  nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -43,7 +190,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251006T130000
 DTEND;TZID=Europe/Madrid:20251006T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Gall dindi a la pla
  nxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -52,7 +200,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251007T130000
 DTEND;TZID=Europe/Madrid:20251007T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Macarrons a la bolonyesa\nSegon: Filet de lluç amb am
  anida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -61,7 +210,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251008T130000
 DTEND;TZID=Europe/Madrid:20251008T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Empedrat de cigrons\nSegon: Croquetes de pollastre amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -70,7 +220,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251009T130000
 DTEND;TZID=Europe/Madrid:20251009T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de pollastre amb pistons\nSegon: Truita de patate
  s amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -79,7 +230,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251010T130000
 DTEND;TZID=Europe/Madrid:20251010T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs a la cubana amb ou dur\nSegon: Rap amb amanida\
  nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -88,7 +240,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251104T130000
 DTEND;TZID=Europe/Madrid:20251104T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Macarrons a la bolonyesa\nSegon: Filet de lluç amb am
  anida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -97,7 +250,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251105T130000
 DTEND;TZID=Europe/Madrid:20251105T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Empedrat de cigrons\nSegon: Croquetes de pollastre amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -106,7 +260,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251106T130000
 DTEND;TZID=Europe/Madrid:20251106T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de pollastre amb pistons\nSegon: Truita de patate
  s amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -115,7 +270,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251107T130000
 DTEND;TZID=Europe/Madrid:20251107T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs a la cubana amb ou dur\nSegon: Rap amb amanida\
  nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -124,7 +280,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251201T130000
 DTEND;TZID=Europe/Madrid:20251201T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Gall dindi a la pla
  nxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -133,7 +290,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251202T130000
 DTEND;TZID=Europe/Madrid:20251202T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Macarrons a la bolonyesa\nSegon: Filet de lluç amb am
  anida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -142,7 +300,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251203T130000
 DTEND;TZID=Europe/Madrid:20251203T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Empedrat de cigrons\nSegon: Croquetes de pollastre amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -151,7 +310,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251204T130000
 DTEND;TZID=Europe/Madrid:20251204T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de pollastre amb pistons\nSegon: Truita de patate
  s amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -160,7 +320,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251205T130000
 DTEND;TZID=Europe/Madrid:20251205T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs a la cubana amb ou dur\nSegon: Rap amb amanida\
  nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -169,7 +330,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20250915T130000
 DTEND;TZID=Europe/Madrid:20250915T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Crema de pastanaga i carbassa\nSegon: Pit de pollastre
   a la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -178,7 +340,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20250916T130000
 DTEND;TZID=Europe/Madrid:20250916T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llaçets a la carbonara\nSegon: Truita de carbassó am
  b amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -187,7 +350,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20250917T130000
 DTEND;TZID=Europe/Madrid:20250917T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties amb arròs\nSegon: Salmó al forn amb amanida
  \nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -196,7 +360,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20250918T130000
 DTEND;TZID=Europe/Madrid:20250918T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Fideua de peix\nSegon: Llom a la planxa amb amanida\nP
  ostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -205,7 +370,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20250919T130000
 DTEND;TZID=Europe/Madrid:20250919T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida de patates amb pernil dolç\nSegon: Bacallà a
   la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -214,7 +380,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251013T130000
 DTEND;TZID=Europe/Madrid:20251013T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Crema de pastanaga i carbassa\nSegon: Pit de pollastre
   a la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -223,7 +390,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251014T130000
 DTEND;TZID=Europe/Madrid:20251014T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llaçets a la carbonara\nSegon: Truita de carbassó am
  b amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -232,7 +400,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251015T130000
 DTEND;TZID=Europe/Madrid:20251015T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties amb arròs\nSegon: Salmó al forn amb amanida
  \nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -241,7 +410,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251016T130000
 DTEND;TZID=Europe/Madrid:20251016T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Fideua de peix\nSegon: Llom a la planxa amb amanida\nP
  ostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -250,7 +420,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251017T130000
 DTEND;TZID=Europe/Madrid:20251017T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida de patates amb pernil dolç\nSegon: Bacallà a
   la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -259,7 +430,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251110T130000
 DTEND;TZID=Europe/Madrid:20251110T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Crema de pastanaga i carbassa\nSegon: Pit de pollastre
   a la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -268,7 +440,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251111T130000
 DTEND;TZID=Europe/Madrid:20251111T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llaçets a la carbonara\nSegon: Truita de carbassó am
  b amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -277,7 +450,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251112T130000
 DTEND;TZID=Europe/Madrid:20251112T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties amb arròs\nSegon: Salmó al forn amb amanida
  \nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -286,7 +460,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251113T130000
 DTEND;TZID=Europe/Madrid:20251113T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Fideua de peix\nSegon: Llom a la planxa amb amanida\nP
  ostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -295,7 +470,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251114T130000
 DTEND;TZID=Europe/Madrid:20251114T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida de patates amb pernil dolç\nSegon: Bacallà a
   la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -304,7 +480,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251209T130000
 DTEND;TZID=Europe/Madrid:20251209T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llaçets a la carbonara\nSegon: Truita de carbassó am
  b amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -313,7 +490,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251210T130000
 DTEND;TZID=Europe/Madrid:20251210T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties amb arròs\nSegon: Salmó al forn amb amanida
  \nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -322,7 +500,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251211T130000
 DTEND;TZID=Europe/Madrid:20251211T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Fideua de peix\nSegon: Llom a la planxa amb amanida\nP
  ostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -331,7 +510,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251212T130000
 DTEND;TZID=Europe/Madrid:20251212T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida de patates amb pernil dolç\nSegon: Bacallà a
   la planxa amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -340,7 +520,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20250922T130000
 DTEND;TZID=Europe/Madrid:20250922T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Espaguetis a la napolitana\nSegon: Cues de rap a la pl
  anxa amb amanida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -349,7 +530,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20250923T130000
 DTEND;TZID=Europe/Madrid:20250923T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongetes seques amb salsa vinagreta\nSegon: Botifarra 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -358,7 +540,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20250924T130000
 DTEND;TZID=Europe/Madrid:20250924T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Escudella amb galets\nSegon: Lluç amb patates\nPostre
  : Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -367,7 +550,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20250925T130000
 DTEND;TZID=Europe/Madrid:20250925T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Bistec a la planxa 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -376,7 +560,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20250926T130000
 DTEND;TZID=Europe/Madrid:20250926T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida d'arròs\nSegon: Truita a la francesa amb aman
  ida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -385,7 +570,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251020T130000
 DTEND;TZID=Europe/Madrid:20251020T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Espaguetis a la napolitana\nSegon: Cues de rap a la pl
  anxa amb amanida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -394,7 +580,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251021T130000
 DTEND;TZID=Europe/Madrid:20251021T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongetes seques amb salsa vinagreta\nSegon: Botifarra 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -403,7 +590,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251022T130000
 DTEND;TZID=Europe/Madrid:20251022T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Escudella amb galets\nSegon: Lluç amb patates\nPostre
  : Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -412,7 +600,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251023T130000
 DTEND;TZID=Europe/Madrid:20251023T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Bistec a la planxa 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -421,43 +610,68 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251024T130000
 DTEND;TZID=Europe/Madrid:20251024T140000
-DTSTAMP:20251002T094044Z
-DESCRIPTION:Primer: Amanida d'arròs\nSegon: Truita a la francesa amb aman
- ida\nPostre: Fruita
-LOCATION:Centre Escolar Sant Nicolau\, Sabadell
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Menú Sant Nicolau - Divendres
-DTSTART;TZID=Europe/Madrid:20251017T130000
-DTEND;TZID=Europe/Madrid:20251017T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida d'arròs\nSegon: Truita a la francesa amb aman
  ida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
-DTSTART;TZID=Europe/Madrid:20251020T130000
-DTEND;TZID=Europe/Madrid:20251020T140000
-DTSTAMP:20251002T094044Z
+DTSTART;TZID=Europe/Madrid:20251117T130000
+DTEND;TZID=Europe/Madrid:20251117T140000
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Espaguetis a la napolitana\nSegon: Cues de rap a la pl
  anxa amb amanida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
-DTSTART;TZID=Europe/Madrid:20251021T130000
-DTEND;TZID=Europe/Madrid:20251021T140000
-DTSTAMP:20251002T094044Z
+DTSTART;TZID=Europe/Madrid:20251118T130000
+DTEND;TZID=Europe/Madrid:20251118T140000
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongetes seques amb salsa vinagreta\nSegon: Botifarra 
  amb amanida\nPostre: Fruita
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Menú Sant Nicolau - Dimecres
+DTSTART;TZID=Europe/Madrid:20251119T130000
+DTEND;TZID=Europe/Madrid:20251119T140000
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
+DESCRIPTION:Primer: Escudella amb galets\nSegon: Lluç amb patates\nPostre
+ : Fruita
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Menú Sant Nicolau - Dijous
+DTSTART;TZID=Europe/Madrid:20251120T130000
+DTEND;TZID=Europe/Madrid:20251120T140000
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
+DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Bistec a la planxa 
+ amb amanida\nPostre: Fruita
+LOCATION:Centre Escolar Sant Nicolau\, Sabadell
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Menú Sant Nicolau - Divendres
+DTSTART;TZID=Europe/Madrid:20251121T130000
+DTEND;TZID=Europe/Madrid:20251121T140000
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
+DESCRIPTION:Primer: Amanida d'arròs\nSegon: Truita a la francesa amb aman
+ ida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251215T130000
 DTEND;TZID=Europe/Madrid:20251215T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Espaguetis a la napolitana\nSegon: Cues de rap a la pl
  anxa amb amanida\nPostre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -466,7 +680,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251216T130000
 DTEND;TZID=Europe/Madrid:20251216T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongetes seques amb salsa vinagreta\nSegon: Botifarra 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -475,7 +690,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251217T130000
 DTEND;TZID=Europe/Madrid:20251217T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Escudella amb galets\nSegon: Lluç amb patates\nPostre
  : Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -484,7 +700,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251218T130000
 DTEND;TZID=Europe/Madrid:20251218T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Mongeta tendra amb patates\nSegon: Bistec a la planxa 
  amb amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -493,7 +710,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251219T130000
 DTEND;TZID=Europe/Madrid:20251219T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Amanida d'arròs\nSegon: Truita a la francesa amb aman
  ida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -502,7 +720,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20250929T130000
 DTEND;TZID=Europe/Madrid:20250929T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Trinxat de col i patates\nSegon: Estofat de vedella am
  b bolets\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -511,7 +730,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20250930T130000
 DTEND;TZID=Europe/Madrid:20250930T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties a la cassola\nSegon: Calamars arrebossats amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -520,7 +740,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251001T130000
 DTEND;TZID=Europe/Madrid:20251001T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Pèsols amb patates\nSegon: Bacallà amb verdures\nPos
  tre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -529,7 +750,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251002T130000
 DTEND;TZID=Europe/Madrid:20251002T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs caldós de verdures\nSegon: Hamburguesa de poll
  astre amb ceba i carbassa\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -538,7 +760,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251003T130000
 DTEND;TZID=Europe/Madrid:20251003T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de peix amb fideus\nSegon: Magra amb salsa proven
  çal\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -547,7 +770,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251027T130000
 DTEND;TZID=Europe/Madrid:20251027T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Trinxat de col i patates\nSegon: Estofat de vedella am
  b bolets\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -556,7 +780,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251028T130000
 DTEND;TZID=Europe/Madrid:20251028T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties a la cassola\nSegon: Calamars arrebossats amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -565,7 +790,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251029T130000
 DTEND;TZID=Europe/Madrid:20251029T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Pèsols amb patates\nSegon: Bacallà amb verdures\nPos
  tre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -574,7 +800,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251030T130000
 DTEND;TZID=Europe/Madrid:20251030T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs caldós de verdures\nSegon: Hamburguesa de poll
  astre amb ceba i carbassa\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -583,7 +810,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251031T130000
 DTEND;TZID=Europe/Madrid:20251031T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de peix amb fideus\nSegon: Magra amb salsa proven
  çal\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -592,7 +820,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dilluns
 DTSTART;TZID=Europe/Madrid:20251124T130000
 DTEND;TZID=Europe/Madrid:20251124T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Trinxat de col i patates\nSegon: Estofat de vedella am
  b bolets\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -601,7 +830,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimarts
 DTSTART;TZID=Europe/Madrid:20251125T130000
 DTEND;TZID=Europe/Madrid:20251125T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Llenties a la cassola\nSegon: Calamars arrebossats amb
   amanida\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -610,7 +840,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dimecres
 DTSTART;TZID=Europe/Madrid:20251126T130000
 DTEND;TZID=Europe/Madrid:20251126T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Pèsols amb patates\nSegon: Bacallà amb verdures\nPos
  tre: Iogurt natural
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -619,7 +850,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Dijous
 DTSTART;TZID=Europe/Madrid:20251127T130000
 DTEND;TZID=Europe/Madrid:20251127T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Arròs caldós de verdures\nSegon: Hamburguesa de poll
  astre amb ceba i carbassa\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell
@@ -628,7 +860,8 @@ BEGIN:VEVENT
 SUMMARY:Menú Sant Nicolau - Divendres
 DTSTART;TZID=Europe/Madrid:20251128T130000
 DTEND;TZID=Europe/Madrid:20251128T140000
-DTSTAMP:20251002T094044Z
+DTSTAMP:20251008T093159Z
+CATEGORIES:menu
 DESCRIPTION:Primer: Sopa de peix amb fideus\nSegon: Magra amb salsa proven
  çal\nPostre: Fruita
 LOCATION:Centre Escolar Sant Nicolau\, Sabadell

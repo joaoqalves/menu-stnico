@@ -1,108 +1,16 @@
-import opendataloader_pdf
+#!/usr/bin/env python3
+"""
+Standalone script to regenerate HTML and ICS files from corrected JSON menu data.
+This script extracts the HTML and ICS generation functionality from menu_parser.py
+so you can regenerate the output files after manually correcting the JSON.
+"""
+
 import json
 import os
-import re
-from datetime import date, datetime, timedelta
 import click
+from datetime import datetime, timedelta
 from icalendar import Calendar, Event
 import pytz
-
-def normalize_text(text: str) -> str:
-    """
-    Normalize capitalization: first letter uppercase, rest lowercase,
-    keep accents intact.
-    """
-    text = text.strip("- ").strip()
-    if not text:
-        return text
-    return text[0].upper() + text[1:].lower()
-
-def parse_weeks(weeks_str: str, year: int):
-    """
-    Parse strings like 'Del 9 al 12/09 Del 6 al 10/10' or 'Del 29 al 3/10'
-    into structured dates with YYYY-MM-DD format.
-    Handles cross-month ranges where start_day > end_day.
-    """
-    # Academic year assumption
-    result = []
-    pattern = r"Del (\d{1,2}) al (\d{1,2})/(\d{2})"
-    for start_day, end_day, month in re.findall(pattern, weeks_str):
-        start_day = int(start_day)
-        end_day = int(end_day)
-        month = int(month)
-        year = year if month >= 7 else year + 1
-        
-        # Handle cross-month ranges (e.g., "Del 29 al 3/10" means Sep 29 to Oct 3)
-        if start_day > end_day:
-            # Start date is in the previous month
-            if month == 1:
-                start_month = 12
-                start_year = year - 1
-            else:
-                start_month = month - 1
-                start_year = year
-            
-            start = date(start_year, start_month, start_day).isoformat()
-            end = date(year, month, end_day).isoformat()
-        else:
-            # Normal case: both dates in the same month
-            start = date(year, month, start_day).isoformat()
-            end = date(year, month, end_day).isoformat()
-        
-        result.append({"start": start, "end": end})
-    return result
-
-def parse_menu(json_data):
-    # Find the table node
-    table = next(kid for kid in json_data["kids"] if kid["type"] == "table")
-    
-    # Get header row -> days of week
-    header_row = table["rows"][0]
-    days = []
-    for cell in header_row["cells"][1:]:  # skip "SETMANA"
-        if cell["kids"]:
-            days.append(normalize_text(cell["kids"][0]["content"]))
-        else:
-            days.append(None)
-    
-    menus = []
-    # Iterate over remaining rows
-    for row in table["rows"][1:]:
-        week_cell = row["cells"][0]
-        if not week_cell["kids"]:
-            continue
-        
-        # Week range(s)
-        weeks_str = " ".join([kid["content"] for kid in week_cell["kids"] if "content" in kid])
-        # Use current year as default, could be made configurable
-        current_year = date.today().year
-        weeks = parse_weeks(weeks_str, current_year)
-        
-        # Menus for each weekday
-        week_menu = {"weeks": weeks, "days": {}}
-        for i, cell in enumerate(row["cells"][1:]):  # skip first column
-            if not days[i]:
-                continue
-            meals = []
-            for kid in cell.get("kids", []):
-                if kid["type"] == "list":
-                    for item in kid["list items"]:
-                        meals.append(normalize_text(item["content"]))
-            if meals:
-                week_menu["days"][days[i]] = {
-                    "entrant": meals[0] if len(meals) > 0 else None,
-                    "main": meals[1] if len(meals) > 1 else None,
-                    "dessert": meals[2] if len(meals) > 2 else None,
-                    "raw": meals
-                }
-        menus.append(week_menu)
-    
-    return menus
-
-def save_menu_json(menu_data, output_path: str):
-    """Save menu data to JSON file."""
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(menu_data, f, indent=2, ensure_ascii=False)
 
 def generate_ics_calendar(menu_data, output_path: str, holiday_data=None):
     """Generate ICS calendar file from menu data."""
@@ -238,19 +146,81 @@ def get_weekday_name_ca(date_obj):
     day_names = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres']
     return day_names[date_obj.weekday()]
 
-def get_previous_weekday(date_obj):
-    """Get the previous weekday (skip weekends)."""
-    prev_date = date_obj - timedelta(days=1)
-    if prev_date.weekday() == 6:  # Sunday
-        prev_date = prev_date - timedelta(days=2)  # Go to Friday
-    return prev_date
+def get_quarterly_date_range(menu_data):
+    """Get the overall date range covered by the quarterly menu."""
+    if not menu_data:
+        return None, None
+    
+    all_dates = []
+    for week_menu in menu_data:
+        for week_range in week_menu['weeks']:
+            all_dates.append(week_range['start'])
+            all_dates.append(week_range['end'])
+    
+    if not all_dates:
+        return None, None
+    
+    return min(all_dates), max(all_dates)
 
-def get_next_weekday(date_obj):
-    """Get the next weekday (skip weekends)."""
-    next_date = date_obj + timedelta(days=1)
-    if next_date.weekday() == 5:  # Saturday
-        next_date = next_date + timedelta(days=2)  # Go to Monday
-    return next_date
+def is_date_within_quarterly_range(target_date, menu_data):
+    """Check if a date falls within the quarterly menu range."""
+    start_date, end_date = get_quarterly_date_range(menu_data)
+    if not start_date or not end_date:
+        return False
+    
+    target_date_str = target_date.isoformat()
+    return start_date <= target_date_str <= end_date
+
+def check_holiday(target_date, holiday_data):
+    """Check if a date is a holiday and return holiday information."""
+    if not holiday_data or 'holidays' not in holiday_data:
+        return None
+    
+    target_date_str = target_date.isoformat()
+    
+    for holiday in holiday_data['holidays']:
+        if holiday['date'] == target_date_str:
+            return holiday
+    
+    return None
+
+def generate_menu_html(week_menu, day_name, target_date=None, full_menu_data=None, holiday_data=None):
+    """Generate HTML for a specific day's menu."""
+    # Check if this is a holiday first
+    if target_date and holiday_data:
+        holiday = check_holiday(target_date, holiday_data)
+        if holiday:
+            holiday_type_info = holiday_data.get('holiday_types', {}).get(holiday['type'], {})
+            emoji = holiday_type_info.get('emoji', '🎉')
+            holiday_name = holiday.get('name', 'Festiu')
+            description = holiday.get('description', '')
+            color = holiday_type_info.get('color', '#667eea')
+            
+            return f'''<div class="no-menu" style="background: linear-gradient(135deg, {color}20, {color}10); border-left: 4px solid {color};">
+                <div style="font-size: 1.2em; margin-bottom: 10px;">{emoji} <strong>{holiday_name}</strong></div>
+                <div style="color: #666; font-size: 0.9em;">{description}</div>
+            </div>'''
+    
+    if not week_menu or not day_name or day_name not in week_menu['days']:
+        # Check if this is a bank holiday (date within quarterly range) or missing menu
+        if target_date and full_menu_data and is_date_within_quarterly_range(target_date, full_menu_data):
+            return '<div class="no-menu">Dia de lliure disposició</div>'
+        else:
+            return '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu <strong><a href="mailto:joaoqalves@hey.com">joaoqalves@hey.com</a></strong></div>'
+    
+    day_menu = week_menu['days'][day_name]
+    html = ''
+    
+    if day_menu.get('entrant'):
+        html += f'<div class="menu-item"><strong>Primer:</strong> {day_menu["entrant"]}</div>'
+    
+    if day_menu.get('main'):
+        html += f'<div class="menu-item"><strong>Segon:</strong> {day_menu["main"]}</div>'
+    
+    if day_menu.get('dessert'):
+        html += f'<div class="menu-item"><strong>Postre:</strong> {day_menu["dessert"]}</div>'
+    
+    return html if html else '<div class="no-menu">No hi ha menú disponible per aquest dia</div>'
 
 def generate_html_pages(menu_data, json_filename, ics_filename, holiday_data=None):
     """Generate HTML pages for the menu."""
@@ -954,129 +924,29 @@ def generate_html_pages(menu_data, json_filename, ics_filename, holiday_data=Non
     with open('sobre.html', 'w', encoding='utf-8') as f:
         f.write(sobre_html)
 
-def get_quarterly_date_range(menu_data):
-    """Get the overall date range covered by the quarterly menu."""
-    if not menu_data:
-        return None, None
-    
-    all_dates = []
-    for week_menu in menu_data:
-        for week_range in week_menu['weeks']:
-            all_dates.append(week_range['start'])
-            all_dates.append(week_range['end'])
-    
-    if not all_dates:
-        return None, None
-    
-    return min(all_dates), max(all_dates)
-
-def is_date_within_quarterly_range(target_date, menu_data):
-    """Check if a date falls within the quarterly menu range."""
-    start_date, end_date = get_quarterly_date_range(menu_data)
-    if not start_date or not end_date:
-        return False
-    
-    target_date_str = target_date.isoformat()
-    return start_date <= target_date_str <= end_date
-
-def check_holiday(target_date, holiday_data):
-    """Check if a date is a holiday and return holiday information."""
-    if not holiday_data or 'holidays' not in holiday_data:
-        return None
-    
-    target_date_str = target_date.isoformat()
-    
-    for holiday in holiday_data['holidays']:
-        if holiday['date'] == target_date_str:
-            return holiday
-    
-    return None
-
-def generate_menu_html(week_menu, day_name, target_date=None, full_menu_data=None, holiday_data=None):
-    """Generate HTML for a specific day's menu."""
-    # Check if this is a holiday first
-    if target_date and holiday_data:
-        holiday = check_holiday(target_date, holiday_data)
-        if holiday:
-            holiday_type_info = holiday_data.get('holiday_types', {}).get(holiday['type'], {})
-            emoji = holiday_type_info.get('emoji', '🎉')
-            holiday_name = holiday.get('name', 'Festiu')
-            description = holiday.get('description', '')
-            color = holiday_type_info.get('color', '#667eea')
-            
-            return f'''<div class="no-menu" style="background: linear-gradient(135deg, {color}20, {color}10); border-left: 4px solid {color};">
-                <div style="font-size: 1.2em; margin-bottom: 10px;">{emoji} <strong>{holiday_name}</strong></div>
-                <div style="color: #666; font-size: 0.9em;">{description}</div>
-            </div>'''
-    
-    if not week_menu or not day_name or day_name not in week_menu['days']:
-        # Check if this is a bank holiday (date within quarterly range) or missing menu
-        if target_date and full_menu_data and is_date_within_quarterly_range(target_date, full_menu_data):
-            return '<div class="no-menu">Dia de lliure disposició</div>'
-        else:
-            return '<div class="no-menu">El menú no està actualitzat. Si us plau, contacteu <strong><a href="mailto:joaoqalves@hey.com">joaoqalves@hey.com</a></strong></div>'
-    
-    day_menu = week_menu['days'][day_name]
-    html = ''
-    
-    if day_menu.get('entrant'):
-        html += f'<div class="menu-item"><strong>Primer:</strong> {day_menu["entrant"]}</div>'
-    
-    if day_menu.get('main'):
-        html += f'<div class="menu-item"><strong>Segon:</strong> {day_menu["main"]}</div>'
-    
-    if day_menu.get('dessert'):
-        html += f'<div class="menu-item"><strong>Postre:</strong> {day_menu["dessert"]}</div>'
-    
-    return html if html else '<div class="no-menu">No hi ha menú disponible per aquest dia</div>'
-
 @click.command()
-@click.argument('pdf_file', type=click.Path(exists=True))
-@click.option('--output', '-o', 'output_file', type=click.Path(), help='Output JSON file path (default: based on PDF filename)')
-@click.option('--print', 'print_output', is_flag=True, help='Print parsed menu to stdout')
-@click.option('--ics', 'ics_output', type=click.Path(), help='Output ICS calendar file path (default: based on PDF filename)')
+@click.argument('json_file', type=click.Path(exists=True))
+@click.option('--ics', 'ics_output', type=click.Path(), help='Output ICS calendar file path (default: based on JSON filename)')
 @click.option('--html', 'html_output', is_flag=True, help='Generate HTML pages (index.html and sobre.html)')
-def main(pdf_file, output_file, print_output, ics_output, html_output):
-    """Parse a school menu PDF file and convert it to JSON format."""
-    # Get base filename without extension
-    base_file = os.path.splitext(os.path.basename(pdf_file))[0]
+@click.option('--holidays', 'holiday_file', type=click.Path(), help='Path to holiday JSON file (default: holidays_2025_2026.json)')
+def main(json_file, ics_output, html_output, holiday_file):
+    """Regenerate HTML and ICS files from corrected JSON menu data."""
+    # Load menu data from JSON
+    print(f"Loading menu data from: {json_file}")
+    with open(json_file, 'r', encoding='utf-8') as f:
+        menu_data = json.load(f)
     
-    # Set default output file if not provided
-    if output_file is None:
-        output_file = f"{base_file}_menu.json"
+    # Get base filename without extension
+    base_file = os.path.splitext(os.path.basename(json_file))[0]
     
     # Set default ICS output file if not provided
     if ics_output is None:
-        ics_output = f"{base_file}_menu.ics"
-    
-    # Check if JSON already exists in output folder
-    json_path = f"output/{base_file}.json"
-    
-    if os.path.exists(json_path):
-        print(f"Using existing parsed data from {json_path}")
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        print(f"Parsing PDF file: {pdf_file}")
-        opendataloader_pdf.run(
-            input_path=pdf_file,
-            output_folder="output",
-            generate_markdown=True,
-            generate_html=True,
-            generate_annotated_pdf=True,
-        )
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    
-    # Parse the menu
-    parsed_menu = parse_menu(data)
-    
-    # Save to output file
-    save_menu_json(parsed_menu, output_file)
-    print(f"Menu saved to: {output_file}")
+        ics_output = f"{base_file}.ics"
     
     # Load holiday data if available
-    holiday_file = f"holidays_2025_2026.json"
+    if holiday_file is None:
+        holiday_file = "holidays_2025_2026.json"
+    
     holiday_data = None
     if os.path.exists(holiday_file):
         try:
@@ -1085,21 +955,20 @@ def main(pdf_file, output_file, print_output, ics_output, html_output):
             print(f"Holiday data loaded from: {holiday_file}")
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Warning: Could not load holiday data from {holiday_file}: {e}")
+    else:
+        print(f"No holiday file found at: {holiday_file}")
     
     # Generate ICS calendar if requested
     if ics_output:
-        generate_ics_calendar(parsed_menu, ics_output, holiday_data)
+        generate_ics_calendar(menu_data, ics_output, holiday_data)
         print(f"Calendar saved to: {ics_output}")
     
     # Generate HTML pages if requested
     if html_output:
-        generate_html_pages(parsed_menu, output_file, ics_output or f"{base_file}_menu.ics", holiday_data)
+        generate_html_pages(menu_data, json_file, ics_output or f"{base_file}.ics", holiday_data)
         print("HTML pages generated: index.html and sobre.html")
     
-    # Print to stdout if requested
-    if print_output:
-        print("\nParsed menu:")
-        print(json.dumps(parsed_menu, indent=2, ensure_ascii=False))
+    print("Regeneration complete!")
 
 if __name__ == "__main__":
     main()

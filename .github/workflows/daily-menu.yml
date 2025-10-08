@@ -30,17 +30,20 @@ jobs:
           uv run python menu_parser.py 2025_q4.pdf --output 2025_q4_menu.json --ics 2025_q4_menu.ics --html
 
       - name: Generate daily message
+        id: generate-message
         run: |
-          uv run python daily_menu_message.py --telegram --output-file daily_menu.txt
+          uv run python daily_menu_message.py --telegram --output-file daily_menu.txt --holiday-path holidays_2025_2026.json
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Upload message file
+        if: steps.generate-message.outputs.exit_code == 0
         uses: actions/upload-artifact@v4
         with:
           name: daily-menu-message
           path: daily_menu.txt
 
       - name: Post to Telegram
-        if: success()
+        if: steps.generate-message.outputs.exit_code == 0
         run: |
           # Read the message content
           MESSAGE=$(cat daily_menu.txt)
@@ -55,3 +58,8 @@ jobs:
             }"
 
           echo "Message posted to Telegram successfully!"
+
+      - name: Log school closure
+        if: steps.generate-message.outputs.exit_code == 2
+        run: |
+          echo "School is closed today - skipping Telegram message"
