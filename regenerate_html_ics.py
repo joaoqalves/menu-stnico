@@ -184,6 +184,93 @@ def check_holiday(target_date, holiday_data):
     
     return None
 
+def get_upcoming_school_holidays(holiday_data, days_ahead=5):
+    """Get upcoming school holidays (school_closed=true) within the next few days."""
+    if not holiday_data or 'holidays' not in holiday_data:
+        return []
+    
+    today = datetime.now().date()
+    upcoming_holidays = []
+    
+    for holiday in holiday_data['holidays']:
+        holiday_date = datetime.fromisoformat(holiday['date']).date()
+        
+        # Check if it's a school holiday and within the next few days
+        if (holiday.get('school_closed', False) and 
+            today <= holiday_date <= today + timedelta(days=days_ahead)):
+            
+            # Skip holidays that fall on weekends (Saturday=5, Sunday=6)
+            if holiday_date.weekday() < 5:  # Only Monday-Friday (0-4)
+                upcoming_holidays.append(holiday)
+    
+    # Sort by date
+    upcoming_holidays.sort(key=lambda x: x['date'])
+    return upcoming_holidays
+
+def generate_novetats_html(holiday_data):
+    """Generate the novetats (news) section HTML."""
+    novetats_items = []
+    
+    # Add calendar announcement
+    novetats_items.append({
+        'icon': '📅',
+        'title': 'Calendari actualitzat',
+        'description': 'Tots els dies festius i de lliure disposició ara al vostre calendari',
+        'type': 'info',
+        'date': datetime.strptime('2025-10-08', '%Y-%m-%d').date(),
+        'sort_date': datetime.strptime('2025-10-08', '%Y-%m-%d').date()
+    })
+    
+    # Add upcoming school holidays
+    upcoming_holidays = get_upcoming_school_holidays(holiday_data, days_ahead=5)
+    for holiday in upcoming_holidays:
+        holiday_date = datetime.fromisoformat(holiday['date']).date()
+        days_until = (holiday_date - datetime.now().date()).days
+        
+        if days_until == 0:
+            time_text = "avui"
+        elif days_until == 1:
+            time_text = "demà"
+        else:
+            time_text = f"en {days_until} dies"
+        
+        holiday_type_info = holiday_data.get('holiday_types', {}).get(holiday['type'], {})
+        emoji = holiday_type_info.get('emoji', '🎉')
+        
+        novetats_items.append({
+            'icon': emoji,
+            'title': f"{holiday['name']} {time_text}",
+            'description': f"L'escola estarà tancada - {holiday.get('description', '')}",
+            'type': 'holiday',
+            'date': holiday_date,
+            'sort_date': holiday_date
+        })
+    
+    if not novetats_items:
+        return ""
+    
+    # Sort by date descending (most recent first) and limit to 3 items
+    novetats_items.sort(key=lambda x: x['sort_date'], reverse=True)
+    novetats_items = novetats_items[:3]
+    
+    # Generate HTML
+    html_parts = ['<div class="novetats-section">']
+    html_parts.append('<h3>📢 Novetats</h3>')
+    
+    for item in novetats_items:
+        css_class = f"novetats-item {item.get('type', 'info')}"
+        html_parts.append(f'<div class="{css_class}">')
+        html_parts.append(f'<div class="novetats-icon">{item["icon"]}</div>')
+        html_parts.append('<div class="novetats-content">')
+        html_parts.append(f'<div class="novetats-title">{item["title"]}</div>')
+        html_parts.append(f'<div class="novetats-description">{item["description"]}</div>')
+        html_parts.append(f'<div class="novetats-date">{item["date"].strftime("%d/%m/%Y")}</div>')
+        html_parts.append('</div>')
+        html_parts.append('</div>')
+    
+    html_parts.append('</div>')
+    return '\n'.join(html_parts)
+
 def generate_menu_html(week_menu, day_name, target_date=None, full_menu_data=None, holiday_data=None):
     """Generate HTML for a specific day's menu."""
     # Check if this is a holiday first
@@ -465,6 +552,76 @@ def generate_html_pages(menu_data, json_filename, ics_filename, holiday_data=Non
             background: rgba(255,255,255,0.3);
         }}
         
+        .novetats-section {{
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }}
+        
+        .novetats-section h3 {{
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }}
+        
+        .novetats-item {{
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }}
+        
+        .novetats-item.info {{
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 4px solid #2196f3;
+        }}
+        
+        .novetats-item.holiday {{
+            background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+            border-left: 4px solid #ff9800;
+        }}
+        
+        .novetats-item:hover {{
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }}
+        
+        .novetats-icon {{
+            font-size: 1.5rem;
+            margin-right: 12px;
+            margin-top: 2px;
+        }}
+        
+        .novetats-content {{
+            flex: 1;
+        }}
+        
+        .novetats-title {{
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }}
+        
+        .novetats-description {{
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }}
+        
+        .novetats-date {{
+            color: #999;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }}
+        
          @media (max-width: 600px) {{
              .container {{
                  padding: 15px;
@@ -524,6 +681,28 @@ def generate_html_pages(menu_data, json_filename, ics_filename, holiday_data=Non
                  padding: 20px 30px;
                  font-size: 1.1rem;
              }}
+             
+             .novetats-section {{
+                 padding: 15px;
+             }}
+             
+             .novetats-item {{
+                 padding: 10px;
+                 margin-bottom: 12px;
+             }}
+             
+             .novetats-icon {{
+                 font-size: 1.3rem;
+                 margin-right: 10px;
+             }}
+             
+             .novetats-title {{
+                 font-size: 0.95rem;
+             }}
+             
+             .novetats-description {{
+                 font-size: 0.85rem;
+             }}
          }}
     </style>
 </head>
@@ -538,6 +717,8 @@ def generate_html_pages(menu_data, json_filename, ics_filename, holiday_data=Non
                 </a>
             </div>
         </div>
+        
+        {generate_novetats_html(holiday_data)}
         
          <div class="menu-card">
              <div class="menu-header">
